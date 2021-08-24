@@ -8,14 +8,19 @@ import { MaterialModule } from '../shared/material/material.module';
 import { FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
 
 const routes: Routes = [
-  { path: '', component: MerchantComponent },
+  {
+    path: '',
+    component: MerchantComponent,
+    children: [{ path: ':id', component: MerchantComponent }],
+  },
   { path: '**', redirectTo: '' },
 ];
 
 @NgModule({
-  declarations: [MerchantComponent, ProductsListComponent],
+  declarations: [MerchantComponent, ProductsListComponent, ToolbarComponent],
   imports: [
     CommonModule,
     MaterialModule,
