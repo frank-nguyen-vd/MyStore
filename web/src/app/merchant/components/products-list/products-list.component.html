@@ -26,7 +26,11 @@
 <div *ngIf="products" class="flex-container" fxLayout.xs="column">
   <div *ngFor="let product of products | async" class="flex-item">
     <mat-card>
-      <span><img src="{{ product.image }}" /></span>
+      <a [routerLink]="['/products', product.id]">
+        <span>
+          <img src="{{ product.image }}" />
+        </span>
+      </a>
       <mat-card-content>
         <span class="title">{{ product.title }}</span>
         <span class="price">${{ product.price }}</span>
