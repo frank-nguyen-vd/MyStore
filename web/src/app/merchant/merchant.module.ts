@@ -1,12 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-
+import { MerchantComponent } from './merchant.component';
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule
-  ]
+  declarations: [MerchantComponent],
+  imports: [CommonModule],
 })
-export class MerchantModule { }
+export class MerchantModule {}
