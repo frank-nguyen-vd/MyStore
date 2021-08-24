@@ -22,3 +22,24 @@
     </span>
   </mat-toolbar-row>
 </mat-toolbar>
+
+<div *ngIf="products" class="flex-container" fxLayout.xs="column">
+  <div *ngFor="let product of products | async" class="flex-item">
+    <mat-card>
+      <span><img src="{{ product.image }}" /></span>
+      <mat-card-content>
+        <span class="title">{{ product.title }}</span>
+        <span class="price">${{ product.price }}</span>
+        <span>
+          <span class="qty">
+            <mat-select [value]="1">
+              <mat-option *ngFor="let qty of quantities" [value]="qty">
+                {{ qty }}
+              </mat-option>
+            </mat-select>
+          </span>
+        </span>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

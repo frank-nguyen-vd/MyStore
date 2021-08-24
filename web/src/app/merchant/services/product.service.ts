@@ -18,7 +18,7 @@ export class ProductService {
     this._products = new BehaviorSubject<Product[]>([]);
   }
 
-  getProducts(): Observable<Product[]> {
+  get products(): Observable<Product[]> {
     return this._products.asObservable();
   }
 
