@@ -5,8 +5,19 @@
   <mat-toolbar-row>
     <span>
       <mat-tab-group mat-align-tabs="center" backgroundColor="primary">
-        <mat-tab label="Product List"></mat-tab>
-        <mat-tab label="Cart"></mat-tab>
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <mat-icon>store</mat-icon>
+            Products
+          </ng-template>
+        </mat-tab>
+
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <mat-icon>shopping_cart</mat-icon>
+            Cart
+          </ng-template>
+        </mat-tab>
       </mat-tab-group>
     </span>
   </mat-toolbar-row>
