@@ -8,9 +8,15 @@ import { AppComponent } from './app.component';
 
 const routes: Routes = [
   {
-    path: 'products',
-    loadChildren: () =>
-      import('./merchant/merchant.module').then((m) => m.MerchantModule),
+    path: '',
+    children: [
+      {
+        path: 'products',
+        loadChildren: () =>
+          import('./merchant/merchant.module').then((m) => m.MerchantModule),
+      },
+      { path: '**', redirectTo: 'products' },
+    ],
   },
   { path: '**', redirectTo: 'products' },
 ];
