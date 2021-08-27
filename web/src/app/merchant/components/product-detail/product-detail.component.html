@@ -1,2 +1,12 @@
 <app-toolbar></app-toolbar>
-<p>product-detail works!</p>
+
+<div class="flex-container" fxLayout.xs="column">
+  <div class="flex-item">
+    <mat-grid-list cols="2" rowHeight="1:2">
+      <mat-grid-tile>
+        <img src="{{ product.image }}" />
+      </mat-grid-tile>
+      <mat-grid-tile>2</mat-grid-tile>
+    </mat-grid-list>
+  </div>
+</div>

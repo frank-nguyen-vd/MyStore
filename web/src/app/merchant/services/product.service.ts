@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Product } from '../models/product';
 
+const productsUrl = 'https://fakestoreapi.com/products/';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -22,13 +24,11 @@ export class ProductService {
     return this._products.asObservable();
   }
 
-  getProductById(id: number): Product | undefined {
-    return this.dataStore.products.find((x) => x.id == id);
+  getProductById(id: number): Observable<Product> {
+    return this.http.get<Product>(productsUrl + `${id}`);
   }
 
   loadAll() {
-    const productsUrl = 'https://fakestoreapi.com/products/';
-
     return this.http.get<Product[]>(productsUrl).subscribe(
       (data) => {
         this.dataStore.products = data;
