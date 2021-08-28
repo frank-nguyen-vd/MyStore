@@ -9,6 +9,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
+import { CartComponent } from './components/cart/cart.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,10 @@ const routes: Routes = [
     path: 'product/:id',
     component: ProductDetailComponent,
   },
+  {
+    path: 'cart',
+    component: CartComponent,
+  },
   { path: '**', redirectTo: 'list' },
 ];
 
@@ -27,6 +32,7 @@ const routes: Routes = [
     ProductsListComponent,
     ToolbarComponent,
     ProductDetailComponent,
+    CartComponent,
   ],
   imports: [
     CommonModule,
