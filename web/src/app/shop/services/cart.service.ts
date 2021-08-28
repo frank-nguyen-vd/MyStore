@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
+import { Product } from '../models/product';
 
-interface Cart {
-  [productId: number]: { qty: number };
+export interface Cart {
+  [productId: number]: { qty: number; product: Product };
 }
 
 @Injectable({
@@ -11,12 +12,14 @@ export class CartService {
   private cart: Cart = {};
   constructor() {}
 
-  addToCart(productId: number, qty: number) {
+  addToCart(productId: number, qty: number, product: Product): void {
     if (this.cart && productId in this.cart) {
       this.cart[productId].qty += qty;
+      this.cart[productId].product = product;
     } else {
-      this.cart[productId] = { qty };
+      this.cart[productId] = { qty, product };
     }
+    console.log('add to cart', this.cart);
   }
 
   getCart() {

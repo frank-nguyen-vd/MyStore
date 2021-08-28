@@ -11,7 +11,7 @@
         <span class="title">{{ product.title.substr(0, 30) }}</span>
         <span class="price">${{ product.price }}</span>
         <span>
-          <form (ngSubmit)="addToCart(product.id)">
+          <form (ngSubmit)="addToCart(product.id, product)">
             <p>
               <span class="qty">
                 <mat-select [value]="1">

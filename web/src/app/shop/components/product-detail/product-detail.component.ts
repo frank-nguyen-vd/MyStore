@@ -30,7 +30,7 @@ export class ProductDetailComponent implements OnInit {
   }
 
   addToCart(productId: number): void {
-    this.cartService.addToCart(productId, this.selectedQty);
+    this.cartService.addToCart(productId, this.selectedQty, this.product);
     this.selectedQty = 1;
   }
 }

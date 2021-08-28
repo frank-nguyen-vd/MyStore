@@ -36,8 +36,8 @@ export class ProductsListComponent implements OnInit {
     this.productService.loadAll();
   }
 
-  addToCart(productId: number): void {
-    this.cartService.addToCart(productId, this.selectedQty);
+  addToCart(productId: number, product: Product): void {
+    this.cartService.addToCart(productId, this.selectedQty, product);
     this.selectedQty = 1;
   }
 }
