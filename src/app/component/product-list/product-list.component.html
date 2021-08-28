@@ -1,0 +1,5 @@
+<div class="product-container">
+    <app-product-item *ngFor="let product of productList" [product]="product" (addedProduct)="addToCart($event)"></app-product-item> 
+</div>   
+
+<p-toast key="notif" position="top-right"></p-toast>

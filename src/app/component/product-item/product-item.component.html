@@ -1,0 +1,21 @@
+<div class="product-item">
+    <div class="product-container">
+        <a [routerLink]="['productDetail', product.name]" (click)="setSelectedItem(product)"><img class="product-image" src={{product.url}}></a>
+        <div class="product-info">
+            {{product.name}}
+        </div>
+        <div class="product-info">
+            ${{product.price}}
+        </div>
+        
+        <form (ngSubmit)="addToCart(product)">
+            <select class="select-input" name="selectedQuantity" [(ngModel)]="selectedQuantity">
+                <option *ngFor="let quantity of quantityList" [ngValue]="quantity">{{quantity}}</option>
+            </select>
+            <br>
+            <button class="btn btn-primary" type="submit">
+                Add to Cart
+            </button>
+        </form>
+    </div>
+</div>
