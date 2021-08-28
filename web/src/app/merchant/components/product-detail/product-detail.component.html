@@ -14,16 +14,20 @@
           </mat-card-header>
           <mat-card-content>
             <p>{{ product.description.substr(0, 30) }}</p>
-            <p>
-              <mat-select [value]="1">
-                <mat-option *ngFor="let qty of quantities" [value]="qty">
-                  {{ qty }}
-                </mat-option>
-              </mat-select>
-            </p>
-            <p>
-              <button mat-flat-button color="primary">Add to cart</button>
-            </p>
+            <form (ngSubmit)="addToCart(product.id)">
+              <p>
+                <mat-select [(value)]="selectedQty">
+                  <mat-option *ngFor="let qty of quantities" [value]="qty">
+                    {{ qty }}
+                  </mat-option>
+                </mat-select>
+              </p>
+              <p>
+                <button mat-flat-button color="primary" type="submit">
+                  Add to cart
+                </button>
+              </p>
+            </form>
             <a href="/products/list">← Back to product list</a>
           </mat-card-content>
         </mat-card>

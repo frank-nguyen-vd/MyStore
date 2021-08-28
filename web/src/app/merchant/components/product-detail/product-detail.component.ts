@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { BehaviorSubject, Observable } from 'rxjs';
 import { Product } from '../../models/product';
+import { CartService } from '../../services/cart.service';
 import { ProductService } from '../../services/product.service';
 
 @Component({
@@ -12,15 +12,25 @@ import { ProductService } from '../../services/product.service';
 export class ProductDetailComponent implements OnInit {
   product: Product = new Product();
   quantities: number[] = [...Array(11).keys()];
+  selectedQty = 1;
 
-  constructor(private route: ActivatedRoute, private service: ProductService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private productService: ProductService,
+    private cartService: CartService
+  ) {}
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
       const id = params['id'];
-      this.service
+      this.productService
         .getProductById(id)
         .subscribe((product) => (this.product = product));
     });
+  }
+
+  addToCart(productId: number): void {
+    this.cartService.addToCart(productId, this.selectedQty);
+    this.selectedQty = 1;
   }
 }

@@ -8,16 +8,25 @@
         </span>
       </a>
       <mat-card-content>
-        <span class="title">{{ product.title }}</span>
+        <span class="title">{{ product.title.substr(0, 30) }}</span>
         <span class="price">${{ product.price }}</span>
         <span>
-          <span class="qty">
-            <mat-select [value]="1">
-              <mat-option *ngFor="let qty of quantities" [value]="qty">
-                {{ qty }}
-              </mat-option>
-            </mat-select>
-          </span>
+          <form (ngSubmit)="addToCart(product.id)">
+            <p>
+              <span class="qty">
+                <mat-select [value]="1">
+                  <mat-option *ngFor="let qty of quantities" [value]="qty">
+                    {{ qty }}
+                  </mat-option>
+                </mat-select>
+              </span>
+            </p>
+            <p>
+              <button mat-flat-button color="primary" type="submit">
+                Add to cart
+              </button>
+            </p>
+          </form>
         </span>
       </mat-card-content>
     </mat-card>

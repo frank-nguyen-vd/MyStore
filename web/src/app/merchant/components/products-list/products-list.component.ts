@@ -7,6 +7,7 @@ import {
 } from '@angular/cdk/layout';
 import { Product } from '../../models/product';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-products-list',
@@ -17,9 +18,11 @@ export class ProductsListComponent implements OnInit {
   public isScreenSmall: boolean = false;
   products: Observable<Product[]> = new BehaviorSubject<Product[]>([]);
   quantities: number[] = [...Array(11).keys()];
+  selectedQty = 1;
   constructor(
     private breakpointObserver: BreakpointObserver,
-    private productService: ProductService
+    private productService: ProductService,
+    private cartService: CartService
   ) {}
 
   ngOnInit(): void {
@@ -31,5 +34,10 @@ export class ProductsListComponent implements OnInit {
 
     this.products = this.productService.products;
     this.productService.loadAll();
+  }
+
+  addToCart(productId: number): void {
+    this.cartService.addToCart(productId, this.selectedQty);
+    this.selectedQty = 1;
   }
 }

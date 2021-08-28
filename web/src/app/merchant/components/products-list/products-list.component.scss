@@ -15,7 +15,7 @@ span.price {
 }
 
 span.qty {
-  background-color: purple;
+  background-color: white;
   width: 100px;
 }
 
@@ -56,4 +56,10 @@ mat-option {
 mat-option:hover {
   background-color: lightgray !important;
   color: purple;
+}
+
+mat-select {
+  width: 80px;
+  padding: 5px;
+  background-color: grey;
 }
