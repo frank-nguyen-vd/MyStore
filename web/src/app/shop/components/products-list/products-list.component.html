@@ -2,7 +2,7 @@
 <div *ngIf="products" class="flex-container" fxLayout.xs="column">
   <div *ngFor="let product of products | async" class="flex-item">
     <mat-card>
-      <a [routerLink]="['/products/detail', product.id]">
+      <a [routerLink]="['/shop/product', product.id]">
         <span>
           <img src="{{ product.image }}" />
         </span>

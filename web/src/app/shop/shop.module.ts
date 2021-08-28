@@ -16,7 +16,7 @@ const routes: Routes = [
     component: ProductsListComponent,
   },
   {
-    path: 'detail/:id',
+    path: 'product/:id',
     component: ProductDetailComponent,
   },
   { path: '**', redirectTo: 'list' },
@@ -37,4 +37,4 @@ const routes: Routes = [
     RouterModule.forChild(routes),
   ],
 })
-export class MerchantModule {}
+export class ShopModule {}

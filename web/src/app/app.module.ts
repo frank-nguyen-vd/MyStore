@@ -11,14 +11,14 @@ const routes: Routes = [
     path: '',
     children: [
       {
-        path: 'products',
+        path: 'shop',
         loadChildren: () =>
-          import('./merchant/merchant.module').then((m) => m.MerchantModule),
+          import('./shop/shop.module').then((m) => m.ShopModule),
       },
-      { path: '**', redirectTo: 'products' },
+      { path: '**', redirectTo: 'shop' },
     ],
   },
-  { path: '**', redirectTo: 'products' },
+  { path: '**', redirectTo: 'shop' },
 ];
 
 @NgModule({
