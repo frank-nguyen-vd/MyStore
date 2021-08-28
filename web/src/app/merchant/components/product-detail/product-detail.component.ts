@@ -11,6 +11,7 @@ import { ProductService } from '../../services/product.service';
 })
 export class ProductDetailComponent implements OnInit {
   product: Product = new Product();
+  quantities: number[] = [...Array(11).keys()];
 
   constructor(private route: ActivatedRoute, private service: ProductService) {}
 
